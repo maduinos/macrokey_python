@@ -8,7 +8,7 @@ from datetime import datetime
 import logging
 
 logging.basicConfig(
-        filename = 'macrokey.log',
+        #filename = './macrokey.log',
         format = '%(asctime)s:[%(levelname)s]%(message)s',
         datefmt = '%m/%d/%Y %I:%M:%S %p',
         level=logging.DEBUG
@@ -130,7 +130,7 @@ def handleKeyPress( key ):
     global state
     if state == 0:
         store.add( key )
-        logging.debug('key %s', key)
+        #logging.debug('key %s', key)
         for action, trigger in HOT_KEYS.items():
             CHECK = all([ True if triggerKey in store else False for triggerKey in trigger ])
             if CHECK:
